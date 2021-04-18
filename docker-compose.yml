@@ -1,0 +1,21 @@
+version: '3.3'
+services:
+  db:
+    container_name: PostgresSQLDocker
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_USER: protobotUser
+      POSTGRES_PASSWORD: passwordUser
+    ports:
+      - "5432:5432"
+    
+  pgadmin:
+    container_name: pgadmin4_container
+    image: dpage/pgadmin4
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@protobot.dev
+      PGADMIN_DEFAULT_PASSWORD: passwordAdmin
+    ports:
+      - "5050:80"
